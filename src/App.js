@@ -10,8 +10,6 @@ function App() {
   ]);
   return (
     <div className="App">
-      {JSON.stringify(todo)}
-      <hr />
       <Form setTodo={setTodo} todo={todo} />
       <List todo={todo} setTodo={setTodo} />
     </div>

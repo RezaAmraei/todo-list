@@ -1,23 +1,15 @@
 import React from "react";
 
 const List = (props) => {
-  const handleCheckBox = (e, box, i) => {
-    // console.log(box);
+  const handleCheckBox = (e, i) => {
     let copy = [...props.todo];
     copy[i].completed = e.target.checked;
-    // console.log(copy[i]);
-    // console.log(updatedTask);
     props.setTodo([...copy]);
-    //props.setTodo([updatedTask]);
-    // console.log(props.todo);
   };
   const handleDelete = (i) => {
-    // console.log(i);
-    // console.log(props.todo[0].task);
     const newTodo = props.todo.filter(
       (todoSingle) => todoSingle.task !== props.todo[i].task
     );
-    // console.log(newTodo);
     props.setTodo(newTodo);
   };
   return (
@@ -31,7 +23,7 @@ const List = (props) => {
           )}
           <input
             type="checkbox"
-            onChange={(e) => handleCheckBox(e, task, i)}
+            onChange={(e) => handleCheckBox(e, i)}
             checked={task.completed}
           />
           <button onClick={(e) => handleDelete(i)}>Delete</button>
